@@ -1,7 +1,7 @@
 import notePreview from './note-preview.cmp.js'
 
 export default {
-    props: ['note'],
+    props: ['notes'],
     template: `
         <section class="note-list">
             <ul>

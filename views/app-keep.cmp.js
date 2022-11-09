@@ -10,7 +10,7 @@ export default {
     <section class="app-keep">
         <!-- <note-filter @filter="setFilter"/> -->
         <router-link to="/keep/note/edit">Add a car</router-link>
-        <note-list  @remove="removeNote"  :notes="notes"/>
+        <note-list  @remove="removeNote"  />
         <!-- :notes="notesToShow" -->
     </section>
     `,
