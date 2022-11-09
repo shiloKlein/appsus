@@ -1,4 +1,4 @@
-import notePreview from './note-preview.cmp'
+import notePreview from './note-preview.cmp.js'
 
 export default {
     props: ['note'],
