@@ -10,7 +10,7 @@
     background-color: transparent;
     width: 0px;
     height: 0px;
-    justify-self:end;
+    justify-self: end;
 }
 
 .fa-solid.fa-star {
@@ -31,20 +31,21 @@
     display: block
 }
 
-.mail-address{
-width: 200px;
-text-overflow: ellipsis;
-white-space: nowrap;
+.mail-address {
+    width: 140px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
 }
 
 .subject {
-    width: 150px;
+    width: 140px;
     text-overflow: ellipsis;
     white-space: nowrap;
 }
 
 .short-content {
-    max-width: 550px;
+    width: 600px;
     text-overflow: ellipsis;
     overflow: hidden;
     white-space: nowrap;

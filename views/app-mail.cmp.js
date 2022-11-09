@@ -10,9 +10,10 @@ export default {
     template: `
         <section class="email-app flex">
 
-            <mail-nav @folderChosen="filterByFolder"/>
+            <mail-nav @folderChosen="filterByFolder" 
+            @composeClicked="compose"/>
             <mails-list :mails="mails" @delete="deleteMail"/>
-            <new-mail/>
+            <new-mail v-if="isWriting" @close="close"/>
         </section>
     `,
     data() {
@@ -24,7 +25,8 @@ export default {
                 isRead: true, // (optional property, if missing: show all) 
                 isStared: true, // (optional property, if missing: show all) 
                 //  lables: [] // has any of the labels }
-            }
+            },
+            isWriting: false
         }
     },
 
@@ -45,6 +47,12 @@ export default {
                     this.mails.splice(idx, 1)
                     // showSuccessMsg(`Mail ${mailId} deleted`)
                 })
+        },
+        compose(){
+        this.isWriting=true
+        },
+        close(){
+            this.isWriting=false
         },
 
         filterByFolder(folder) {
