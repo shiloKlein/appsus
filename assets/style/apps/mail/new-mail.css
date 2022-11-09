@@ -1,0 +1,65 @@
+.new-mail {
+    position: fixed;
+    bottom: 0;
+    right: 3%;
+    display:none;
+}
+
+.new-mail textarea,
+.new-mail input {
+    width: 400px;
+    outline: none
+}
+
+.new-mail-title {
+    background-color: #404040;
+    color: white;
+    padding: 0.5em;
+    letter-spacing: 0.1px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.new-mail-title {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border: 1px solid black
+}
+
+.new-mail textarea {
+    height: 38vh;
+    resize: none;
+    outline: none;
+    border-bottom: none;
+}
+
+.new-mail-actions {
+    align-items: center;
+    background-color: white;
+    height: 80px;
+    padding: 10px;
+    border-right: 1px solid black;
+    border-left: 1px solid black;
+
+}
+
+.new-mail-actions button {
+    background-color: transparent;
+    width: 90px;
+    border: 0px;
+    margin-inline-start: 15px;
+}
+
+.new-mail-actions .send-btn {
+    background-color: var(--clr12);
+    color: white;
+    border-radius: 10px;
+    margin-inline-start: 15px;
+}
+
+.new-mail-actions :last-child:hover {
+    transform: scale(1.2);
+}
+
+.send-btn:hover {
+    background-color: #486ed7;
+}

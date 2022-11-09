@@ -1,17 +1,18 @@
 import { mailService } from '../services/mail-service.js'
-import mailPreview from './preview.cmp.js'
+import mailPreview from './mail-preview.cmp.js'
 
 
 
 export default {
     name: 'mails-list',
-    props:['mails'],
+    props: ['mails'],
     template: `
         <section class="mail-list">
             <ul>
                 <li v-for="(mail,idx) in mails">
-                    <mail-preview :mail="mail"/>
+                    <mail-preview :mail="mail" @delete="deleteMail"/>
                  </li>
+            </ul>
                    
 
 
@@ -19,12 +20,18 @@ export default {
         </section>
     `,
 
-  
+
 
     data() {
         return {
 
         }
+    },
+    methods: {
+        deleteMail(mailId){
+        this.$emit('delete', mailId)
+        }
+        
     },
 
 

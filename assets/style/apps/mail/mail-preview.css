@@ -1,13 +1,26 @@
 .mail-preveiw {
-gap:2rem;
-height: 2rem;
+    gap: 2rem;
+    height: 2rem;
+    width: calc(95vw - 210px);
 }
-h3{
+
+.mail-list .mail-preveiw button {
+    padding: 0;
+    border: none;
+    background-color: transparent;
+    width: 0px;
+    height: 0px;
+    justify-self:end;
 }
 
 .fa-solid.fa-star {
     color: rgb(228, 198, 28);
     display: none
+}
+
+.fa-solid.fa-star,
+.fa-regular.fa-star {
+    justify-self: center;
 }
 
 .fa-regular.fa-star:hover {
@@ -16,4 +29,23 @@ h3{
 
 .fa-regular.fa-star:hover~.fa-solid.fa-star {
     display: block
+}
+
+.mail-address{
+width: 200px;
+text-overflow: ellipsis;
+white-space: nowrap;
+}
+
+.subject {
+    width: 150px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.short-content {
+    max-width: 550px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
 }
