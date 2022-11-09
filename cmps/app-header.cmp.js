@@ -1,5 +1,5 @@
 export default {
-	template: `
+    template: `
         <header class="app-header">
             <h1>AppSus</h1>
             <nav>
@@ -11,3 +11,4 @@ export default {
         </header>
     `,
 }
+

@@ -8,8 +8,8 @@ export default {
                 <li v-for="note in notes" :key="note.id">
                     <note-preview :note="note"/>
                     <section class="actions">
-                        <router-link :to="'/keep/note/' + note.id">Details</router-link> |
-                        <router-link :to="'/keep/note/edit/' + note.id">Edit</router-link> |
+                        <router-link :to="'/note/' + note.id">Details</router-link> |
+                        <button @click="remove(note.id)">EDIT</button> |
                         <button @click="remove(note.id)">x</button>
                     </section>
                 </li>

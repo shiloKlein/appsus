@@ -1,0 +1,18 @@
+.note-list ul {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 10px;
+    list-style-type: none;
+    background-color: darkcyan;
+    padding: 10px;
+}
+
+.note-list ul li {
+    display: grid;
+    background-color: lightseagreen;
+    padding: 10px;
+}
+
+.actions {
+    justify-self: end;
+}
