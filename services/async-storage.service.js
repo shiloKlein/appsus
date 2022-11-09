@@ -4,6 +4,7 @@ export const storageService = {
     post,
     put,
     remove,
+    save
 }
 
 function query(entityType, delay = 500) {
@@ -46,11 +47,11 @@ function remove(entityType, entityId) {
     })
 }
 
-// Private functions
-
-function _save(entityType, entities) {
+function save(entityType, entities) {
     localStorage.setItem(entityType, JSON.stringify(entities))
 }
+
+// Private functions
 
 function _makeId(length = 5) {
     var text = ''
