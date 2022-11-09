@@ -2,6 +2,7 @@
   background-color: var(--clr5);
   color: var(--secondary-clr1);
   padding: 1em;
+  height: 12vh;
 }
 
 @media(max-width: 720px) {
