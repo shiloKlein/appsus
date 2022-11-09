@@ -1,9 +1,9 @@
 import homePage from './views/app-home.cmp.js'
 import aboutPage from './views/app-about.cmp.js'
 import mailPage from './views/app-mail.cmp.js'
-import keepPage from './views/keep-app.cmp.js'
-import keepDetails from './views/keep-details.cmp.js'
-import keepEdit from './views/keep-edit.cmp.js'
+import keepPage from './views/app-keep.cmp.js'
+import noteDetails from '../apps/keep/pages/note-details.cmp.js'
+import noteEdit from '../apps/keep/pages/note-edit.cmp.js'
 
 
 const { createRouter, createWebHashHistory } = VueRouter
@@ -28,12 +28,12 @@ const routerOptions = {
 			component: keepPage,
 		},
 		{
-			path: '/keep/:id',
-			component: keepDetails
+			path: '/keep/note:id',
+			component: noteDetails
 		},
 		{
-			path: '/keep/edit/:id?',
-			component: keepEdit
+			path: '/keep/note/edit/:id',
+			component: noteEdit
 		},
 
 	],
