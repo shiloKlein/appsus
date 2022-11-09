@@ -14,6 +14,14 @@ const routerOptions = {
 			path: '/about',
 			component: aboutPage,
 		},
+		{
+			path: '/mail',
+			component: aboutPage,
+		},
+		{
+			path: '/keep',
+			component: aboutPage,
+		},
 	],
 }
 
