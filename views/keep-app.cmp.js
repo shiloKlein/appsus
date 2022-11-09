@@ -2,45 +2,44 @@ import { noteService } from '../apps/keep/services/note.service.js'
 
 import { showErrorMsg, showSuccessMsg } from '../services/event-bus.service.js'
 
-import noteFilter from '../apps/keep/cmps/note-filter.cmp.js'
+// import noteFilter from '../apps/keep/cmps/note-filter.cmp.js'
 import noteList from '../apps/keep/cmps/note-list.cmp.js'
 
 export default {
     template: `
-    <section class="car-app">
-        <car-filter @filter="setFilter"/>
-        <router-link to="/car/edit">Add a car</router-link>
-        <car-list 
-            @remove="removeCar" 
-            :cars="carsToShow"/>
+    <section class="app-keep">
+        <!-- <note-filter @filter="setFilter"/> -->
+        <router-link to="/keep/note/edit">Add a car</router-link>
+        <note-list  @remove="removeNote"  />
+        <!-- :notes="notesToShow" -->
     </section>
     `,
     data() {
         return {
-            cars: [],
+            notes: [],
             filterBy: {
-                vendor: '',
-                minSpeed: 0
+                type: '',
+
             },
         }
     },
     created() {
-        carService.query()
-            .then(cars => {
-                this.cars = cars
+        noteService.query()
+            .then(notes => {
+                this.notes = notes
             })
     },
     methods: {
-        removeCar(carId) {
-            carService.remove(carId)
+        removeNote(noteId) {
+            noteService.remove(noteId)
                 .then(() => {
-                    const idx = this.cars.findIndex(car => car.id === carId)
-                    this.cars.splice(idx, 1)
-                    showSuccessMsg(`Car ${carId} deleted`)
+                    const idx = this.notes.findIndex(note => note.id === noteId)
+                    this.notes.splice(idx, 1)
+                    showSuccessMsg(`note ${noteId} deleted`)
                 })
                 .catch(err => {
                     console.log('OOPS', err)
-                    showErrorMsg('Cannot remove car')
+                    showErrorMsg('Cannot remove note')
                 })
 
         },
@@ -49,16 +48,16 @@ export default {
         }
     },
     computed: {
-        carsToShow() {
-            const regex = new RegExp(this.filterBy.vendor, 'i')
-            var cars = this.cars.filter(car => regex.test(car.vendor))
-            cars = cars.filter(car => car.maxSpeed > this.filterBy.minSpeed)
-            return cars
+        // notesToShow() {
+        //     const regex = new RegExp(this.filterBy.vendor, 'i')
+        //     var notes = this.notes.filter(note => regex.test(note.type))
+        //     // cars = cars.filter(car => car.maxSpeed > this.filterBy.minSpeed)
+        //     return notes
 
-        }
+        // }
     },
     components: {
-        carFilter,
-        carList,
+        // noteFilter,
+        noteList,
     }
 }
