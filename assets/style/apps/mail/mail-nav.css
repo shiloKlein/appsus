@@ -1,0 +1,14 @@
+.mail-nav{
+
+}
+.mail-nav ul li{
+padding:15px;
+
+}
+.mail-nav ul li:hover{
+box-shadow: 0px 0px 2px 0px; 
+cursor: pointer;
+}
+.mail-nav ul li.clicked{
+    box-shadow: 0px 0px 2px 0px; 
+}

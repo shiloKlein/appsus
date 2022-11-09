@@ -19,14 +19,10 @@ export default {
         </section>
     `,
 
-    created() {
-        this.getMails()
-    },
+  
 
     data() {
         return {
-            mails: null,
-            txt: 'mail'
 
         }
     },
