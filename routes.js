@@ -37,7 +37,7 @@ const routerOptions = {
 			component: keepDetails
 		},
 		{
-			path: '/keep/edit/:id?',
+			path: '/keep/edit/:id',
 			component: keepEdit
 		},
 

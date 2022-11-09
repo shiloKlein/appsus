@@ -20,4 +20,5 @@
 
 
 /* Apps componenets */
-@import './apps/mail/mail-preview.css'
+@import './apps/mail/mail-preview.css';
+@import './apps/mail/mail-nav.css'

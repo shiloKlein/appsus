@@ -1,23 +1,48 @@
 import newMail from '../apps/mail/cmps/new-mail.cmp.js'
 import mailsList from '../apps/mail/cmps/mails-list.cmp.js'
-import mailNav from '../apps/mail/cmps/mail-folder-list.cmp.js'
+import mailNav from '../apps/mail/cmps/mail-nav.cmp.js'
+
+import { mailService } from '../apps/mail/services/mail-service.js'
+
 
 
 export default {
-	template: `
-        <section class="email-app">
-            <h1>MAIL PAGE</h1>
+    template: `
+        <section class="email-app flex">
 
+            <mail-nav @folderChosen="filterByFolder"/>
+            <mails-list :mails="mails"/>
             <new-mail/>
-            <mails-list/>
-            <mail-nav/>
         </section>
     `,
+    data() {
+        return {
+            mails: null
+        }
+    },
 
-    components:{
-    newMail,
-    mailsList,
-    mailNav
+    created() {
+        this.getMails()
+    },
+
+    methods: {
+
+        getMails() {
+
+            mailService.query()
+                .then(mails => this.mails = mails)
+
+        },
+        filterByFolder(folder){
+        console.log(folder);
+        },
+    },
+
+
+    components: {
+        newMail,
+        mailsList,
+        mailNav
 
     }
 }
