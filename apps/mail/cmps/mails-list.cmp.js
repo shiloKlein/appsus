@@ -4,15 +4,16 @@ import mailPreview from './preview.cmp.js'
 
 
 export default {
+    name: 'mails-list',
     template: `
         <section class="mail-list">
             <ul>
-                <!-- <li v-for="(mail,idx) in mails">{{txt+" "+idx+1}} -->
-                    <!-- <mail-preview v-if=""></mail-preview> -->
-                <!-- </li> -->
-                <li>
+                <li v-for="(mail,idx) in mails">
+                    <mail-preview :mail="mail"/>
+                 </li>
+                <!-- <li> -->
                     <!-- <router-link :to="'/mail/' + mail.id">for details</router-link> -->
-                    <mail-preview/>
+
                 </li>
                 <li> </li>
                 <li> </li>
@@ -29,7 +30,7 @@ export default {
 
     data() {
         return {
-            mails: [],
+            mails: null,
             txt: 'mail'
 
         }
@@ -37,9 +38,9 @@ export default {
     methods: {
 
         getMails() {
-            console.log('get mails');
-            const a = mailService.query()
-                .then(a => console.log(a))
+
+            mailService.query()
+                .then(mails => this.mails = mails)
 
         },
     },
