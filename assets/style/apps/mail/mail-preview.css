@@ -1,0 +1,19 @@
+.mail-preveiw {
+gap:2rem;
+height: 2rem;
+}
+h3{
+}
+
+.fa-solid.fa-star {
+    color: rgb(228, 198, 28);
+    display: none
+}
+
+.fa-regular.fa-star:hover {
+    display: none
+}
+
+.fa-regular.fa-star:hover~.fa-solid.fa-star {
+    display: block
+}

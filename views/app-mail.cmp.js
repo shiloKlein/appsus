@@ -1,6 +1,6 @@
-import newMail from '../cmps/new-mail.cmp.js'
-import mailsList from '../cmps/mails-list.cmp.js'
-import mailNav from '../cmps/mails-nav.cmp.js'
+import newMail from '../apps/mail/cmps/new-mail.cmp.js'
+import mailsList from '../apps/mail/cmps/mails-list.cmp.js'
+import mailNav from '../apps/mail/cmps/mail-folder-list.cmp.js'
 
 
 export default {
