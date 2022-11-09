@@ -9,7 +9,6 @@ export default {
                     <note-preview :note="note"/>
                     <section class="actions">
                         <router-link :to="'/note/' + note.id">Details</router-link> |
-                        <button @click="remove(note.id)">EDIT</button> |
                         <button @click="remove(note.id)">x</button>
                     </section>
                 </li>

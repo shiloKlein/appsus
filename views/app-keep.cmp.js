@@ -2,53 +2,29 @@ const txt = {
     template: `
     <section class="txt">
         <h2>txt</h2>
-        <button @click="report">Go</button>
     </section>
     `,
-    methods: {
-        report() {
-            this.$emit('action', 'Go')
-        }
-    }
 }
 const img = {
     template: `
     <section class="img">
         <h2>img</h2>
-        <button @click="report">Do</button>
     </section>
     `,
-    methods: {
-        report() {
-            this.$emit('action', 'Do')
-        }
-    }
 }
 const video = {
     template: `
     <section class="video">
         <h2>video</h2>
-        <button @click="report">Go</button>
     </section>
     `,
-    methods: {
-        report() {
-            this.$emit('action', 'Go')
-        }
-    }
 }
 const todos = {
     template: `
     <section class="todos">
         <h2>todos</h2>
-        <button @click="report">Do</button>
     </section>
     `,
-    methods: {
-        report() {
-            this.$emit('action', 'Do')
-        }
-    }
 }
 
 
@@ -62,18 +38,23 @@ import noteList from '../apps/keep/cmps/note-list.cmp.js'
 export default {
     template: `
     <section class="app-keep">
-        <!-- <note-filter @filter="setFilter"/> -->
-        <note-list  @remove="removeNote"  :notes="notes"/>
-        <!-- :notes="notesToShow" -->
-         <hr />
-            <select v-model="cmpType">
-                <option>txt</option>
-                <option>img</option>
-                <option>video</option>
-                <option>todos</option>
-            </select>
+        
+        <section class="note-type flex justify-between align-center">
+            <h4>what's on your mind?</h4>
+            <section class="note-type-btns">
+             <button  @click="cmpTo('txt')">txt</button>
+             <button  @click="cmpTo('img')">img</button>
+             <button  @click="cmpTo('video')">video</button>
+             <button  @click="cmpTo('todos')">todos</button>
+            </section>
+        </section>
             <component :is="cmpType" @action="handleAction">
             </component>
+             <hr />
+        <!-- <note-filter @filter="setFilter"/> -->
+        <note-list  @remove="removeNote" :notes="notes"/>
+        <!-- :notes="notesToShow" -->
+        
     </section>
     `,
     data() {
@@ -92,6 +73,9 @@ export default {
             })
     },
     methods: {
+        cmpTo(cmp) {
+            this.cmpType = cmp
+        },
         removeNote(noteId) {
             noteService.remove(noteId)
                 .then(() => {
@@ -104,6 +88,9 @@ export default {
                     showErrorMsg('Cannot remove note')
                 })
 
+        },
+        noteSaved(note) {
+            this.notes.push(note)
         },
         setFilter(filterBy) {
             this.filterBy = filterBy
