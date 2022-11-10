@@ -6,9 +6,13 @@ export default {
     props: ['mail'],
     template: `
         <section class="mail-preveiw flex align-center">
-            <i class="fa-regular fa-star"></i>
-            <i class="fa-solid fa-star"></i>
-            <!-- <router-link :to="'/mail/' + mail.id">for details > -->
+            <div class="star" @click="StarClicked">
+                <i v-if="!mail.isStarred" class="fa-regular fa-star"></i>
+                <i v-else class="fa-solid fa-star"></i>
+                
+            </div>
+            <router-link :to="'/mail/details/' + mail.id" 
+            class=" details-link flex">
                 <div class="mail-address">{{mail.from}}</div>
                 <div class="subject">{{mail.subject}}</div>
                 <div class="short-content">{{mail.body}}</div>
@@ -17,7 +21,7 @@ export default {
                     <div class="mail-date">{{formattedDate}}</div>
                     <button @click="deleteMail(mail.id)">X</button>
                 <!-- </div> -->
-            <!-- </router-link> -->
+            </router-link>
 
         </section>
     `,
@@ -30,7 +34,11 @@ export default {
     methods: {
         deleteMail(mailId){
             this.$emit('delete',mailId)
-        }
+        },
+        StarClicked(){
+            this.mail.isStarred=!this.mail.isStarred
+            this.$emit('starred',this.mail )
+        },
     },
     computed:{
         formattedDate() {

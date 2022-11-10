@@ -10,13 +10,12 @@ export default {
         <section class="mail-list">
             <ul>
                 <li v-for="(mail,idx) in mails">
-                    <mail-preview :mail="mail" @delete="deleteMail"/>
+                    <mail-preview :mail="mail" 
+                    @delete="deleteMail"
+                    @starred="starAdded"/>
                  </li>
             </ul>
                    
-
-
-           
         </section>
     `,
 
@@ -30,7 +29,11 @@ export default {
     methods: {
         deleteMail(mailId){
         this.$emit('delete', mailId)
+        },
+        starAdded(mail){
+        this.$emit('starred', mail)
         }
+
         
     },
 

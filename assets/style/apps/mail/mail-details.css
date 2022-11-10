@@ -1,0 +1,40 @@
+.mail-details{
+width: 100%;
+padding-inline-start: 20px;
+padding-inline-end: 50px;
+}
+
+.details-actions{
+height: 40px;
+}
+
+.details-subject{
+    font-weight: bolder;
+    font-size: xx-large;
+    padding-bottom: 30px;
+}
+
+.details-from-container{
+font-size: large;
+padding-bottom: 40px;
+}
+
+.details-date{
+
+}
+
+.details-from{
+
+}
+
+.details-body{
+    max-width:550px;
+
+}
+
+
+
+
+
+
+
