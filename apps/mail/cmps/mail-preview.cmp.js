@@ -12,7 +12,11 @@ export default {
                 <div class="mail-address">{{mail.from}}</div>
                 <div class="subject">{{mail.subject}}</div>
                 <div class="short-content">{{mail.body}}</div>
-                <button @click="deleteMail(mail.id)">X</button>
+                <!-- <div class="mail-date"> -->
+                    <!-- <div>{{mail.sentAt}}</div> -->
+                    <div class="mail-date">{{formattedDate}}</div>
+                    <button @click="deleteMail(mail.id)">X</button>
+                <!-- </div> -->
             <!-- </router-link> -->
 
         </section>
@@ -26,6 +30,12 @@ export default {
     methods: {
         deleteMail(mailId){
             this.$emit('delete',mailId)
+        }
+    },
+    computed:{
+        formattedDate() {
+            var options = { day: "numeric", month: "short" };
+            return new Date(this.mail.sentAt).toLocaleDateString("en-US", options);
         }
     }
 }

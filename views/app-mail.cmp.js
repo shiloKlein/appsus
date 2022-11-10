@@ -8,12 +8,15 @@ import { mailService } from '../apps/mail/services/mail-service.js'
 
 export default {
     template: `
+            <input v-model="searchTxt" type="text" /><!--should be in comp or header -->
         <section class="email-app flex">
-
-            <mail-nav @folderChosen="filterByFolder" 
+            <mail-nav @folderChosen="getMails" 
             @composeClicked="compose"/>
-            <mails-list :mails="mails" @delete="deleteMail"/>
-            <new-mail v-if="isWriting" @close="close"/>
+
+            <mails-list v-if="this.mails" :mails="mails" @delete="deleteMail"/>
+            <new-mail v-if="isWriting"
+            @close="close"
+            @send="sendMail"/>
         </section>
     `,
     data() {
@@ -26,6 +29,7 @@ export default {
                 isStared: true, // (optional property, if missing: show all) 
                 //  lables: [] // has any of the labels }
             },
+            searchTxt: '',
             isWriting: false
         }
     },
@@ -35,37 +39,59 @@ export default {
     },
 
     methods: {
-
         getMails() {
-            mailService.query()
-                .then(mails => this.mails = mails)
+            const folder =  this.$route.params
+            mailService.query(folder)
+                .then(mails =>{
+                    this.mails = mails
+                    console.log(mails);
+                })
         },
         deleteMail(mailId) {
             mailService.remove(mailId)
-                .then( ()=> {
+                .then(() => {
                     const idx = this.mails.findIndex(mail => mail.id === mailId)
                     this.mails.splice(idx, 1)
                     // showSuccessMsg(`Mail ${mailId} deleted`)
                 })
         },
-        compose(){
-        this.isWriting=true
+        compose() {
+            this.isWriting = true
+            console.log(this.router);
         },
-        close(){
-            this.isWriting=false
+        close() {
+            this.isWriting = false
+        },
+        sendMail(newMail) {
+            mailService.sendMail(newMail)
+                .then(mail => {
+                    console.log(mail);
+                    this.mails.push(mail)
+                })
+            this.isWriting = false
         },
 
-        filterByFolder(folder) {
-            this.criteria.status = folder
-            console.log(folder);
+    },
+    computed: {
+        mailsToShow() {
+            if (!this.criteria) return this.mails
+            const regex = new RegExp(this.searchTxt, 'i')
+            console.log(this.searchTxt);
+            return this.mails.filter(({to, from}) => regex.test(to)&&regex.test(from))
+       },
+
+        mailsInFolder(folder) {
+            const user = mailService.getLoggedInUser
+
         },
     },
+        
 
 
-    components: {
-        newMail,
-        mailsList,
-        mailNav
+        components: {
+            newMail,
+            mailsList,
+            mailNav
 
+        }
     }
-}

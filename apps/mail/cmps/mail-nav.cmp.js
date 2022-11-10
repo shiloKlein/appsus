@@ -4,24 +4,25 @@ export default {
         <section class="mail-nav">
             <button @click="onCompose">new massege</button>
             <ul>
-                <li v-for="opt in navOptions"
-            
-                @click="chooseFolder(opt)">
-                {{opt}}
-                </li>
+              <router-link :to="'/mail/' + opt" v-for="opt in navOptions"> 
+                 <li @click="chooseFolder(opt)">{{opt}}</li>
+            </router-link>
              
+            
                 </ul>
         </section>
     `,
 
     data() {
         return {
-            navOptions: ['inbox', 'starred', 'sent', 'trash']
+            navOptions: ['inbox', 'starred', 'sent', 'trash'],
         }
     },
     methods: {
         chooseFolder(folder) {
-            this.$emit('folderChosen', folder)
+            setTimeout(()=>{
+                this.$emit('folderChosen', folder)
+            },0)
         },
         onCompose(){
             

@@ -50,3 +50,10 @@
     overflow: hidden;
     white-space: nowrap;
 }
+
+.mail-date{
+/* display:none; */
+}
+.mail-preveiw :hover .mail-date{
+display:none;
+}

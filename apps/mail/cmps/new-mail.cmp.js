@@ -1,16 +1,18 @@
+// import { mailService } from "../services/mail-service"
 
 
 export default {
     template: `
         <section class="new-mail flex flex-column">
             <div class="new-mail-title flex justify-between align-center">
-                <div>new massege</div>
+                <div>new massege{{newMail.to}}</div>
                 <button @click="saveToDraft">X</button> 
+                
             </div>
             <!-- <form> -->
-                <input vi-model="newMail.to" type="text" placeholder="to"/>
-                <input vi-model="newMail.subject" type="text" placeholder="subject"/>
-                <textarea vi-model="newMail.body" name="" id="" cols="30" rows="10"></textarea>
+                <input v-model="newMail.to" type="text" placeholder="to"/>
+                <input v-model="newMail.subject" type="text" placeholder="subject"/>
+                <textarea v-model="newMail.body" name="" id="" cols="30" rows="10"></textarea>
                 <!-- <div class="new-mail-actions flex justify-between"> -->
                     <button  @click.prevent="sendMail" class="send-btn">send</button>
                     <button @click="closeComposer">X</button>
@@ -38,7 +40,8 @@ export default {
             this.$emit('close')
         },
         sendMail(){
-            this.$emit('close')
+            console.log(this.newMail);
+            this.$emit('send', this.newMail)
         },
     }
 
