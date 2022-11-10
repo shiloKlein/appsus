@@ -13,10 +13,14 @@ export default {
             <mail-nav @folderChosen="getMails" 
             @composeClicked="compose"/>
 
-            <mails-list v-if="mails" :mails="filterByTxt" @delete="deleteMail"/>
+            <mails-list v-if="mails" :mails="filterByTxt" 
+            @delete="deleteMail"
+            @starred="updateMailStar"/>
+
             <new-mail v-if="isWriting"
             @close="close"
-            @send="sendMail"/>
+            @send="sendMail"
+            />
         </section>
     `,
     data() {
@@ -62,6 +66,10 @@ export default {
                 })
             this.isWriting = false
         },
+        updateMailStar(mail){
+        console.log(mail.isStarred);
+        mailService.save(mail)
+        }
 
     },
     computed: {

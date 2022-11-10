@@ -1,59 +1,90 @@
 .mail-preveiw {
     gap: 2rem;
-    height: 2rem;
+    height: 3rem;
     width: calc(95vw - 210px);
 }
 
-.mail-list .mail-preveiw button {
+.details-link {
+    /* background-color: aquamarine; */
+    align-items: center;
+}
+
+.mail-preveiw .details-link button {
     padding: 0;
     border: none;
     background-color: transparent;
-    width: 0px;
-    height: 0px;
     justify-self: end;
+    display: none;
 }
 
 .fa-solid.fa-star {
     color: rgb(228, 198, 28);
-    display: none
+
 }
 
-.fa-solid.fa-star,
-.fa-regular.fa-star {
-    justify-self: center;
+.fa-solid.fa-star:hover {
+    box-shadow: 0px 0px 3px 0px #000000;
+    border-radius: 50%;
+    cursor: pointer;
 }
 
-.fa-regular.fa-star:hover {
-    display: none
-}
+    .fa-solid.fa-star,
+    .fa-regular.fa-star {
+        justify-self: center;
+    }
 
-.fa-regular.fa-star:hover~.fa-solid.fa-star {
-    display: block
-}
 
-.mail-address {
-    width: 140px;
-    text-overflow: ellipsis;
-    overflow: hidden;
-    white-space: nowrap;
-}
+    .star {
+        display: grid;
+        place-items: center;
+        height: 100%;
+        width: 100%;
+        padding-left: 10px
+    }
 
-.subject {
-    width: 140px;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-}
+    .star:hover .fa-regular.fa-star {
+        border-radius: 50%;
+        box-shadow: 0px 0px 3px 0px #000000;
+        cursor: pointer;
+        ;
+    }
 
-.short-content {
-    width: 600px;
-    text-overflow: ellipsis;
-    overflow: hidden;
-    white-space: nowrap;
-}
+    .fa-regular.fa-star {
+        display: block
+    }
 
-.mail-date{
-/* display:none; */
-}
-.mail-preveiw :hover .mail-date{
-display:none;
-}
+    .mail-address {
+        width: 140px;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
+    }
+
+    .subject {
+        width: 140px;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+    .short-content {
+        width: 600px;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
+    }
+
+    .mail-date {
+        /* display:none; */
+    }
+
+    .mail-preveiw:hover {
+        box-shadow: 0px 0px 3px 0px #000000;
+    }
+
+    .mail-preveiw:hover .mail-date {
+        display: none;
+    }
+
+    .mail-preveiw:hover button {
+        display: block;
+    }
