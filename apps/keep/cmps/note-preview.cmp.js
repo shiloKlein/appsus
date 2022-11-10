@@ -1,6 +1,6 @@
-import { noteTxt } from '../cmps/new-notes/txt-note.cmp.js'
-import { noteImg } from '../cmps/new-notes/img-note.cmp.js'
-import { noteTodos } from '../cmps/new-notes/todos-note.cmp.js'
+import { noteTxt } from './note-types/txt-note.cmp.js'
+import { noteImg } from './note-types/img-note.cmp.js'
+import { noteTodos } from './note-types/todos-note.cmp.js'
 // import videoNote from '../apps/keep/cmps/new-notes/video-note.cmp.js'
 
 

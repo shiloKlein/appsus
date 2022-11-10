@@ -10,15 +10,16 @@ export const noteService = {
     get,
     remove,
     save,
-    getEmptyNote,
+    // getEmptyNote,
     getNextNoteId,
     addNote
 }
 
 
-function addNote({ title, txt }) {
-    const note = _createNote(title, txt)
-    console.log(note);
+function addNote(note) {
+    note = _createNote(note)
+    console.log(note.type)
+    console.log(note.info.url)
     return storageService.post(NOTE_KEY, note)
 }
 
@@ -43,17 +44,17 @@ function save(note) {
     }
 }
 
-function getEmptyNote() {
-    return {
-        id: "",
-        type: "note-txt",
-        isPinned: true,
-        title: "",
-        info: {
-            txt: ""
-        }
-    }
-}
+// function getEmptyNote() {
+//     return {
+//         id: "",
+//         type: "note-txt",
+//         isPinned: true,
+//         title: "",
+//         info: {
+//             txt: ""
+//         }
+//     }
+// }
 
 
 function getNextNoteId(noteId) {
@@ -67,7 +68,7 @@ function getNextNoteId(noteId) {
 
 function _createNotes() {
     let notes = storageService.query(NOTE_KEY)
-    if (!notes || !notes.length) {
+    if (!notes || notes.length) {
         notes = [
             {
                 id: "n101",
@@ -106,10 +107,7 @@ function _createNotes() {
     return notes
 }
 
-function _createNote(title, txt) {
-    const note = getEmptyNote()
+function _createNote(note) {
     note.id = utilService.makeId()
-    note.title = title
-    note.info.txt = txt
     return note
 }
