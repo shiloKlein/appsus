@@ -5,7 +5,7 @@ export default {
     template: `
         <section class="note-list">
             <ul>
-                <li v-for="note in notes" :key="note.id">
+                <li class="grid" v-for="note in notes" :key="note.id">
                     <note-preview :note="note"/>
                     <section class="actions">
                         <button @click="remove(note.id)">x</button>

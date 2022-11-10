@@ -1,18 +1,39 @@
 .note-list ul {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: 10px;
+    /* display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); */
+    columns: 200px 5;
+    column-gap: 20px;
+    break-inside: avoid;
+    row-gap: 10px;
     list-style-type: none;
-    background-color: darkcyan;
     padding: 10px;
 }
 
 .note-list ul li {
-    display: grid;
-    background-color: lightseagreen;
     padding: 10px;
+}
+
+.todo-note-li {
+    display: flex;
+}
+
+.grid {
+    display: grid;
 }
 
 .actions {
     justify-self: end;
+}
+
+.img-note {
+    width: 200px;
+    background: rgb(234, 94, 94);
+}
+
+.todos-note {
+    background: rgb(66, 226, 127);
+}
+
+.txt-note {
+    background: rgb(75, 75, 230);
 }
