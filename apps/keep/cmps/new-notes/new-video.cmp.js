@@ -12,7 +12,7 @@ export const newVideo = {
         return {
             newNote: {
                 id: "",
-                type: "",
+                type: "note-video",
                 isPinned: true,
                 title: "",
                 info: {

@@ -68,22 +68,6 @@ export default {
 
         },
         addNote(newNote) {
-
-            switch (this.cmpType) {
-                case "newTxt":
-                    newNote.type = "note-txt"
-                    break
-                case "newImg":
-                    newNote.type = "note-img"
-                    break
-                case "newVideo":
-                    newNote.type = "note-video"
-                    break
-                case "newTodo":
-                    newNote.type = "note-todo"
-            }
-            console.log(this.cmpType)
-            console.log(newNote.type)
             noteService.addNote(newNote)
                 .then(note => {
                     console.log(note);

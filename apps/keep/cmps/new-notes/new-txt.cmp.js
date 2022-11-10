@@ -13,12 +13,12 @@ export const newTxt = {
         return {
             newNote: {
                 id: "",
-                type: "",
+                type: "note-txt",
                 isPinned: true,
                 title: "",
                 info: {
                     txt: "",
-                    url: "../../../assets/img/1.jpg",
+                    url: "",
                     label: "",
                     todos: [],
                     style: {

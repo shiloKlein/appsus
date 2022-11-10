@@ -14,12 +14,27 @@ export const noteService = {
     getNextNoteId,
     addNote
 }
+function makeList(str) {
+
+    var todosList = str.split(',')
+    var todos = []
+    for (var i = 0; i < todosList.length; i++) {
+        var item = todosList[i]
+        var res = { txt: item, doneAt: null }
+        todos.push(res)
+    }
+    console.log("todos")
+    console.log(todos)
+    return todos
+
+}
+
 
 
 function addNote(note) {
     note = _createNote(note)
     console.log(note.type)
-    console.log(note.info.url)
+    console.log(note.info.todos)
     return storageService.post(NOTE_KEY, note)
 }
 
@@ -68,7 +83,7 @@ function getNextNoteId(noteId) {
 
 function _createNotes() {
     let notes = storageService.query(NOTE_KEY)
-    if (!notes || notes.length) {
+    if (!notes || !notes.length) {
         notes = [
             {
                 id: "n101",
@@ -109,5 +124,7 @@ function _createNotes() {
 
 function _createNote(note) {
     note.id = utilService.makeId()
+    if (note.type === "note-todos")
+        note.info.todos = makeList(note.info.todos)
     return note
 }

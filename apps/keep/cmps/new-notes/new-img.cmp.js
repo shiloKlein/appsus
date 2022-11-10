@@ -12,7 +12,7 @@ export const newImg = {
         return {
             newNote: {
                 id: "",
-                type: "",
+                type: "note-img",
                 isPinned: true,
                 title: "",
                 info: {
@@ -30,7 +30,6 @@ export const newImg = {
 
     methods: {
         addNote() {
-            console.log(this.newNote.title, this.newNote.info.txt);
             this.$emit('add', this.newNote)
         },
 
