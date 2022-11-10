@@ -12,9 +12,11 @@ export default {
     `,
     computed: {
         headerImg() {
+            console.log(this.$route.fullPath.split('/')[2]==='details');
             if(this.$route.fullPath==='/'||
             this.$route.fullPath==='/about')return '../assets/img/apsus-logo.jpg'
-            if(this.$route.fullPath==='/mail')return '../assets/img/mail-logo.png'
+            if(this.$route.fullPath==='/mail'||
+            this.$route.fullPath.split('/')[2]==='details')return '../assets/img/mail-logo.png'
             if(this.$route.fullPath==='/keep')return '../assets/img/keep-logo.png'
         },
         headerTxt() {

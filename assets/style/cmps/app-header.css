@@ -4,8 +4,6 @@
   padding: 1em;
   height: 12vh;
   border-bottom: 1px solid var(--clr3);
-  margin-bottom: 20px;
-  /* position: fixed; */
 }
 .logo-container{
   height: 10vh;

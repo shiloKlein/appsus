@@ -4,7 +4,7 @@ export default {
             <button @click="onCompose">
             <i class="fa-light fa-pencil"></i>
             new massege</button>
-            <ul>
+            <ul class="folder-wrapper">
               <router-link :to="'/mail/' + opt" v-for="(opt,idx) in navOptions"> 
                 <!-- <i :class="{icons[idx]}"> </i> -->
                  <li @click="chooseFolder(opt)">{{opt}}</li>

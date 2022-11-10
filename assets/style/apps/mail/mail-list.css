@@ -1,0 +1,9 @@
+.mail-search{
+    position:relative;
+    top:15px;
+    margin-bottom:30px;
+    border-radius: 8px;
+    border:1px solid rgb(85, 83, 83);
+    width: 300px;
+    left:50%
+    }

@@ -8,7 +8,6 @@ import { mailService } from '../apps/mail/services/mail-service.js'
 
 export default {
     template: `
-            <input class="mail-search" v-model="searchTxt" type="text" placeholder="search for mail" /><!--should be in comp or header -->
         <section class="email-app flex">
             <mail-nav @folderChosen="getMails" 
             @composeClicked="compose"/>

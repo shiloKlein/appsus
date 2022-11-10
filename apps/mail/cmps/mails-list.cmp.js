@@ -8,7 +8,9 @@ export default {
     props: ['mails'],
     template: `
         <section class="mail-list">
-            <ul class="mail-preview-container">>
+        <input class="mail-search" v-model="searchTxt" type="text" placeholder="search for mail" /><!--should be in comp or header -->
+
+            <ul class="mail-preview-container">
                 <li v-for="(mail,idx) in mails">
                     <mail-preview :mail="mail" 
                     @delete="deleteMail"
