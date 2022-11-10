@@ -1,13 +1,30 @@
 .app-header {
-  background-color: var(--clr5);
-  color: var(--secondary-clr1);
+  background-color: var(--clr1);
+  color: var(--clr5);
   padding: 1em;
   height: 12vh;
+  border-bottom: 1px solid var(--clr3);
+}
+.logo-container{
+  height: 10vh;
+  font-size: xx-large;
+}
+header img{
+  object-fit: contain;
+  height: 100%;
+  padding-inline-end: 20px;
 }
 
+.app-header nav{
+  font-size: large;
+}
+
+.app-header nav a:hover{
+  transform:rotate(12);
+}
 @media(max-width: 720px) {
   .app-header {
     background-color: var(--clr3);
-    color: var(--secondary-clr2);
+    color: var(--clr);
   }
 }
