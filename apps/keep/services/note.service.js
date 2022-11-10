@@ -57,14 +57,14 @@ function _createNotes() {
                 type: "note-txt",
                 isPinned: true,
                 info: {
-                    txt: "Fullstack Me Baby!"
+                    txt: "send send the mother..."
                 }
             },
             {
                 id: "n102",
                 type: "note-img",
                 info: {
-                    url: "http://some-img/me",
+                    url: "../../../assets/img/1.jpg",
                     title: "Bobi and Me"
                 },
                 style: {

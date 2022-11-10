@@ -1,39 +1,11 @@
-const txt = {
-    template: `
-    <section class="txt">
-        <h2>txt</h2>
-    </section>
-    `,
-}
-const img = {
-    template: `
-    <section class="img">
-        <h2>img</h2>
-    </section>
-    `,
-}
-const video = {
-    template: `
-    <section class="video">
-        <h2>video</h2>
-    </section>
-    `,
-}
-const todos = {
-    template: `
-    <section class="todos">
-        <h2>todos</h2>
-    </section>
-    `,
-}
 
 
 import { noteService } from '../apps/keep/services/note.service.js'
-
 import { showErrorMsg, showSuccessMsg } from '../services/event-bus.service.js'
 
 // import noteFilter from '../apps/keep/cmps/note-filter.cmp.js'
 import noteList from '../apps/keep/cmps/note-list.cmp.js'
+
 
 export default {
     template: `
@@ -42,10 +14,10 @@ export default {
         <section class="note-type flex justify-between align-center">
             <h4>what's on your mind?</h4>
             <section class="note-type-btns">
-             <button  @click="cmpTo('txt')">txt</button>
-             <button  @click="cmpTo('img')">img</button>
-             <button  @click="cmpTo('video')">video</button>
-             <button  @click="cmpTo('todos')">todos</button>
+             <button  @click="cmpTo('txtNote')">txt</button>
+             <button  @click="cmpTo('imgNote')">img</button>
+             <button  @click="cmpTo('videoNote')">video</button>
+             <button  @click="cmpTo('todosNote')">todos</button>
             </section>
         </section>
             <component :is="cmpType" @action="handleAction">
@@ -63,7 +35,7 @@ export default {
             filterBy: {
                 type: '',
             },
-            cmpType: 'txt',
+            cmpType: 'txtNote',
         }
     },
     created() {
@@ -111,9 +83,9 @@ export default {
     components: {
         // noteFilter,
         noteList,
-        txt,
-        img,
-        video,
-        todos
+        // txtNote,
+        // imgNote,
+        // videoNote,
+        // todosNote
     }
 }
