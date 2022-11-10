@@ -6,15 +6,15 @@ export default {
     props: ['mail'],
     template: `
     
-            <article class="mail-preveiw flex align-center">
-                <div class="star" @click="StarClicked">
-                    <i v-if="!mail.isStarred" class="fa-regular fa-star"></i>
-                    <i v-else class="fa-solid fa-star"></i>
-                    
-                </div>
-                <router-link :to="'/mail/details/' + mail.id" 
-                class=" details-link flex">
+    <article class="mail-preveiw">
+        <router-link :to="'/mail/details/' + mail.id" 
+        class=" details-link  flex align-center">
+        <div class="star" @click.prevent="StarClicked">
+            <i v-if="!mail.isStarred" class="fa-regular fa-star"></i>
+            <i v-else class="fa-solid fa-star"></i>
+        </div>
                     <div class="mail-address">{{mail.from}}</div>
+
                     <div class="subject">{{mail.subject}}</div>
                     <div class="short-content">{{mail.body}}</div>
                     <!-- <div class="mail-date"> -->
@@ -22,11 +22,11 @@ export default {
                         
                         <!-- <i class="fa-solid fa-trash-can" ></i> -->
                         <!-- </div> -->
+                        <div class="mail-date">{{formattedDate}}</div>
+                        <button @click.prevent="deleteMail(mail.id)">
+                        <i class="fa-solid fa-trash-can" ></i>
+                        </button>
                     </router-link>
-                    <div class="mail-date">{{formattedDate}}</div>
-                    <button @click.stop="deleteMail(mail.id)">
-                    <i class="fa-solid fa-trash-can" ></i>
-                    </button>
     
             </article>
 
