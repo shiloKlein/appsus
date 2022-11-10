@@ -7,7 +7,10 @@ import { showErrorMsg, showSuccessMsg } from '../services/event-bus.service.js'
 // import noteFilter from '../apps/keep/cmps/note-filter.cmp.js'
 import noteList from '../apps/keep/cmps/note-list.cmp.js'
 
-import { newNote } from '../apps/keep/cmps/new-notes/new-note.cmp.js'
+import { newTxt } from '../apps/keep/cmps/new-notes/new-txt.cmp.js'
+import { newImg } from '../apps/keep/cmps/new-notes/new-img.cmp.js'
+import { newVideo } from '../apps/keep/cmps/new-notes/new-video.cmp.js'
+import { newTodo } from '../apps/keep/cmps/new-notes/new-todo.cmp.js'
 
 export default {
     template: `
@@ -16,10 +19,10 @@ export default {
         <section class="note-type flex justify-between align-center">
             <h4>what's on your mind?</h4>
             <section class="note-type-btns">
-             <button  @click="cmpTo('newNote')">txt</button>
-             <button  @click="cmpTo('imgNote')">img</button>
-             <button  @click="cmpTo('videoNote')">video</button>
-             <button  @click="cmpTo('todosNote')">todos</button>
+             <button  @click="cmpTo('newTxt')">txt</button>
+             <button  @click="cmpTo('newImg')">img</button>
+             <button  @click="cmpTo('newVideo')">video</button>
+             <button  @click="cmpTo('newTodo')">todos</button>
             </section>
         </section>
             <component :is="cmpType" @add="addNote">
@@ -38,7 +41,7 @@ export default {
             filterBy: {
                 type: '',
             },
-            cmpType: 'newNote',
+            cmpType: 'newTxt',
         }
     },
     created() {
@@ -65,6 +68,22 @@ export default {
 
         },
         addNote(newNote) {
+
+            switch (this.cmpType) {
+                case "newTxt":
+                    newNote.type = "note-txt"
+                    break
+                case "newImg":
+                    newNote.type = "note-img"
+                    break
+                case "newVideo":
+                    newNote.type = "note-video"
+                    break
+                case "newTodo":
+                    newNote.type = "note-todo"
+            }
+            console.log(this.cmpType)
+            console.log(newNote.type)
             noteService.addNote(newNote)
                 .then(note => {
                     console.log(note);
@@ -90,9 +109,9 @@ export default {
     components: {
         // noteFilter,
         noteList,
-        newNote
-        // imgNote,
-        // videoNote,
-        // todosNote
+        newTxt,
+        newImg,
+        newVideo,
+        newTodo
     }
 }
