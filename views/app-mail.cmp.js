@@ -13,7 +13,7 @@ export default {
             <mail-nav @folderChosen="getMails" 
             @composeClicked="compose"/>
 
-            <mails-list v-if="this.mails" :mails="mails" @delete="deleteMail"/>
+            <mails-list v-if="mails" :mails="filterByTxt" @delete="deleteMail"/>
             <new-mail v-if="isWriting"
             @close="close"
             @send="sendMail"/>
@@ -22,13 +22,6 @@ export default {
     data() {
         return {
             mails: null,
-            criteria: {
-                status: '',
-                txt: 'puki',
-                isRead: true, // (optional property, if missing: show all) 
-                isStared: true, // (optional property, if missing: show all) 
-                //  lables: [] // has any of the labels }
-            },
             searchTxt: '',
             isWriting: false
         }
@@ -44,7 +37,6 @@ export default {
             mailService.query(folder)
                 .then(mails =>{
                     this.mails = mails
-                    console.log(mails);
                 })
         },
         deleteMail(mailId) {
@@ -73,11 +65,13 @@ export default {
 
     },
     computed: {
-        mailsToShow() {
-            if (!this.criteria) return this.mails
+        filterByTxt() {
+            if (!this.searchTxt) return this.mails
             const regex = new RegExp(this.searchTxt, 'i')
-            console.log(this.searchTxt);
-            return this.mails.filter(({to, from}) => regex.test(to)&&regex.test(from))
+            return this.mails.filter((mail) =>{ 
+            return regex.test(mail.to)||
+            regex.test(mail.from)||
+            regex.test(mail.subject)})
        },
 
         mailsInFolder(folder) {

@@ -35,7 +35,6 @@ function sendMail({ to, subject, body }) {
 function query({folder}) {
     return storageService.query(MAIL_KEY)
         .then(mails => {
-            console.log(folder);
             if (folder === 'inbox') {
                 mails = mails.filter(mail => !mail.isSent)
             }
