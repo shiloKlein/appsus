@@ -1,11 +1,13 @@
 
 
+
 import { noteService } from '../apps/keep/services/note.service.js'
 import { showErrorMsg, showSuccessMsg } from '../services/event-bus.service.js'
 
 // import noteFilter from '../apps/keep/cmps/note-filter.cmp.js'
 import noteList from '../apps/keep/cmps/note-list.cmp.js'
 
+import { newNote } from '../apps/keep/cmps/new-notes/new-note.cmp.js'
 
 export default {
     template: `
@@ -14,16 +16,17 @@ export default {
         <section class="note-type flex justify-between align-center">
             <h4>what's on your mind?</h4>
             <section class="note-type-btns">
-             <button  @click="cmpTo('txtNote')">txt</button>
+             <button  @click="cmpTo('newNote')">txt</button>
              <button  @click="cmpTo('imgNote')">img</button>
              <button  @click="cmpTo('videoNote')">video</button>
              <button  @click="cmpTo('todosNote')">todos</button>
             </section>
         </section>
-            <component :is="cmpType" @action="handleAction">
+            <component :is="cmpType" @add="addNote">
             </component>
              <hr />
         <!-- <note-filter @filter="setFilter"/> -->
+         <!-- <new-note  @add="addNote"/> -->
         <note-list  @remove="removeNote" :notes="notes"/>
         <!-- :notes="notesToShow" -->
         
@@ -35,7 +38,7 @@ export default {
             filterBy: {
                 type: '',
             },
-            cmpType: 'txtNote',
+            cmpType: 'newNote',
         }
     },
     created() {
@@ -61,8 +64,12 @@ export default {
                 })
 
         },
-        noteSaved(note) {
-            this.notes.push(note)
+        addNote(newNote) {
+            noteService.addNote(newNote)
+                .then(note => {
+                    console.log(note);
+                    this.notes.push(note)
+                })
         },
         setFilter(filterBy) {
             this.filterBy = filterBy
@@ -83,7 +90,7 @@ export default {
     components: {
         // noteFilter,
         noteList,
-        // txtNote,
+        newNote
         // imgNote,
         // videoNote,
         // todosNote

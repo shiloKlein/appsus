@@ -1,40 +1,30 @@
-export default {
+export const newNote = {
 
 
     template: `
         <section class="new-note flex flex-column">
-            <div class="new-note-title flex justify-between align-center">
-                <textarea v-model="title" placeholder="Title"></textarea>
-            </div>
-            <div class="new-note-tools flex justify-between align-center">
-                <p class="bgc-tool" >bgc</p>
-                <p class="pin-tool" >pin</p>
-                <p class="duplicate-tool" >bgc</p>
-                <p class="mail-tool" >bgc</p>
+                <textarea v-model="newNote.title" placeholder="Title"></textarea>
+                <textarea v-model="newNote.txt" placeholder="Take a note..."></textarea>
+                <button class="add-note" @click.prevent="addNote()">Add</button>
+                
         </section>
     `,
     data() {
         return {
-            newMail: {
-                to: '',
-                subject: '',
-                body: '',
-
+            newNote: {
+                title: "",
+                txt: '',
             }
 
         }
     },
+
     methods: {
-        saveToDraft() {
-            this.$emit('close')
+        addNote() {
+            console.log(this.newNote);
+            this.$emit('add', this.newNote)
         },
 
-        closeComposer() {
-            this.$emit('close')
-        },
-        sendMail() {
-            this.$emit('close')
-        },
     }
 
 }
