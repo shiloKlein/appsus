@@ -10,7 +10,7 @@ export default {
                 
             </div>
             <!-- <form> -->
-                <input v-model="newMail.to" type="text" placeholder="to"/>
+                <input v-model="newMail.to" type="email" placeholder="to"/>
                 <input v-model="newMail.subject" type="text" placeholder="subject"/>
                 <textarea v-model="newMail.body" name="" id="" cols="30" rows="10"></textarea>
                 <!-- <div class="new-mail-actions flex justify-between"> -->

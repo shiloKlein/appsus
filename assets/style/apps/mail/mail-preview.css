@@ -1,4 +1,9 @@
+/* .mail-preview-container :nth-child(even){
+background-color: beige;
+} */
+
 .mail-preveiw {
+    justify-content: flex-start;
     gap: 2rem;
     height: 3rem;
     width: calc(95vw - 210px);
@@ -9,7 +14,7 @@
     align-items: center;
 }
 
-.mail-preveiw .details-link button {
+.mail-preveiw button {
     padding: 0;
     border: none;
     background-color: transparent;
@@ -37,9 +42,9 @@
     .star {
         display: grid;
         place-items: center;
-        height: 100%;
-        width: 100%;
-        padding-left: 10px
+        height: 30px;
+        width: 30px;
+        padding-left: 20px
     }
 
     .star:hover .fa-regular.fa-star {
@@ -54,7 +59,8 @@
     }
 
     .mail-address {
-        width: 140px;
+        min-width: 100px;
+        max-width: 130px;
         text-overflow: ellipsis;
         overflow: hidden;
         white-space: nowrap;
@@ -67,7 +73,7 @@
     }
 
     .short-content {
-        width: 600px;
+        max-width: 600px;
         text-overflow: ellipsis;
         overflow: hidden;
         white-space: nowrap;

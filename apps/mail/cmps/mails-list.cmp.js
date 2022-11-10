@@ -8,7 +8,7 @@ export default {
     props: ['mails'],
     template: `
         <section class="mail-list">
-            <ul>
+            <ul class="mail-preview-container">>
                 <li v-for="(mail,idx) in mails">
                     <mail-preview :mail="mail" 
                     @delete="deleteMail"
