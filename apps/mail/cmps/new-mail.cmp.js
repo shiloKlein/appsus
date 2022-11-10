@@ -17,7 +17,9 @@ export default {
                     <button  @click.prevent="sendMail" class="send-btn">send</button>
                     <!-- </div> -->
                 </form>
-                <button class="close-composer-btn" @click.prevent="closeComposer">X</button>
+                <div class="close-composer-btn" @click.prevent="closeComposer">
+                <i class="fa-solid fa-trash-can nav-icon">
+                </div>
         </section>
     `,
     data() {

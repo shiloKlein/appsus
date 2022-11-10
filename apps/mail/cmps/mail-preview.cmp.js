@@ -14,9 +14,8 @@ export default {
             <i v-else class="fa-solid fa-star"></i>
         </div>
                     <div class="mail-address">{{mail.from}}</div>
-
-                    <div class="subject">{{mail.subject}}</div>
-                    <div class="short-content">{{mail.body}}</div>
+                        <div class="subject">{{mail.subject}}</div>
+                        <div class="short-content">{{mail.body}}</div>
                     <!-- <div class="mail-date"> -->
                         <!-- <div>{{mail.sentAt}}</div> -->
                         
@@ -38,15 +37,15 @@ export default {
         }
     },
     methods: {
-        deleteMail(mailId){
-            this.$emit('delete',mailId)
+        deleteMail(mailId) {
+            this.$emit('delete', mailId)
         },
-        StarClicked(){
-            this.mail.isStarred=!this.mail.isStarred
-            this.$emit('starred',this.mail )
+        StarClicked() {
+            this.mail.isStarred = !this.mail.isStarred
+            this.$emit('starred', this.mail)
         },
     },
-    computed:{
+    computed: {
         formattedDate() {
             var options = { day: "numeric", month: "short" };
             return new Date(this.mail.sentAt).toLocaleDateString("en-US", options);
