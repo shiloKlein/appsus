@@ -98,7 +98,7 @@ function _createNotes() {
                 id: "n102",
                 type: "note-img",
                 info: {
-                    url: "../../../assets/img/1.jpg",
+                    url: "../../../assets/img/1.JPG",
                     title: "Bobi and Me"
                 },
                 style: {
