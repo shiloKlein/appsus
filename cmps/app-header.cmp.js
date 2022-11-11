@@ -14,10 +14,10 @@ export default {
         headerImg() {
             console.log(this.$route.fullPath.split('/')[2]==='details');
             if(this.$route.fullPath==='/'||
-            this.$route.fullPath==='/about')return '../assets/img/apsus-logo.JPG'
+            this.$route.fullPath==='/about')return './assets/img/apsus-logo.JPG'
             if(this.$route.fullPath==='/mail'||
-            this.$route.fullPath.split('/')[2]==='details')return '../assets/img/mail-logo.PNG'
-            if(this.$route.fullPath==='/keep')return '../assets/img/keep-logo.PNG'
+            this.$route.fullPath.split('/')[2]==='details')return './assets/img/mail-logo.PNG'
+            if(this.$route.fullPath==='/keep')return './assets/img/keep-logo.PNG'
         },
         headerTxt() {
             if(this.$route.fullPath==='/') return 'Apsus'
