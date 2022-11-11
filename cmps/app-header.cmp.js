@@ -1,7 +1,7 @@
 export default {
     template: `
-        <header class="app-header flex justify-between align-center">
         <div class="main-screen" :class="{menu_open:isMenuClicked}" @click="toggleMenu()"></div>
+        <header class="app-header flex justify-between align-center">
             <div class="logo-container flex align-center"><img v-bind:src="headerImg" /> {{headerTxt}}</div> 
             <button class="btn-menu" @click="toggleMenu()"><img src="./assets/img/apps_icon.png"/></button>
             <nav>

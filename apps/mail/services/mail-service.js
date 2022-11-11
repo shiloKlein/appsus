@@ -3,6 +3,8 @@
 import { utilService } from '../../../services/util.service.js'
 import { storageService } from '../../../services/async-storage.service.js'
 
+import mailData from '../../data/demo-mails.json' assert {type:'json'}
+
 const MAIL_KEY = 'mailDB'
 
 const loggedinUser = { email: 'vueser@apl.com', fullname: 'Async Await' }
@@ -87,7 +89,6 @@ function getNextMailId(mailId) {
         })
 }
 
-//
 
 function _createMail(from = '', to = '', subject = '', body = '', sentAt = null) {
     const mail = getEmptyMail(subject, body, sentAt, from, to)
@@ -104,59 +105,7 @@ function _createMails() {
     let mails = utilService.loadFromStorage(MAIL_KEY)
 
     if (!mails || !mails.length) {
-        mails = [
-            {
-                id: 'e101',
-                subject: 'Miss you!',
-                body: 'Would love to catch up sometimes',
-                isRead: false,
-                isStarred: false,
-                isSent: false,
-                isTrash: false,
-                isDraft: false,
-                sentAt: 1551133930594,
-                from: 'momo@momo.com',
-                to: 'user@appsus.com',
-            },
-            {
-                id: 'e102',
-                subject: 'important meeting',
-                body: `it was an honor to meet you last sunday. 
-                    please remember the next meeting will take place next week in the same hour at the same place.
-                    this meeting is very important to our company!!`,
-                isRead: false,
-                isStarred: false,
-                isSent: false,
-                isTrash: false,
-                isDraft: false,
-                sentAt: 1551123330594,
-                from: 'bannana@async.com',
-                to: 'user@appsus.com'
-            },
-            {
-                id: 'e10',
-                subject: 'important flubby',
-                body: `lorem ipsum you are very welcom. `,
-                isRead: false,
-                isStarred: false,
-                isSent: true,
-                isTrash: false,
-                isDraft: false,
-                sentAt: 1551423330594,
-                from: 'user@appsus.com',
-                to: 'bannana@async.com'
-            },
-        ]
-        // mails.push(_createMail('important meeting',
-        //     `it was an honor to meet you last sunday. 
-        //     please remember the next meeting will take place next week in the same hour at the same place.
-        //     this meeting is very important to our company!!`,
-        //     Date.now(),
-        //     'bannana@async.com',
-        //     'potato@oop.com'))
-        // mails.push(_createMail('new offer for you', 120))
-        // mails.push(_createMail('about the course', 100))
-        // mails.push(_createMail('apl progremming language', 150))
+        mails = mailData
         storageService.save(MAIL_KEY, mails)
         console.log(mails);
     }

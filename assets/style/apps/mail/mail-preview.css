@@ -6,15 +6,18 @@ background-color: rgb(237, 237, 237);
     justify-content: flex-start;
     gap: 2rem;
     height: 3rem;
-    width: calc(95vw - 220px);
+    /* width: calc(95vw - 220px); */
     /* position: relative; */
 }
 
 .details-link {
-    align-items: center;
+    /* align-items: center; */
    /* width: 100%; */
     height: 100%;
     background-color: inherit;
+    display: flex;
+    align-items: center;
+    /* flex-grow: 1; */
 }
 
 .mail-preveiw button {
@@ -23,7 +26,7 @@ background-color: rgb(237, 237, 237);
     padding: 0;
     border: none;
     background-color: transparent;
-    justify-self: end;
+    /* justify-self: end; */
     display: none;
 }
 
@@ -77,13 +80,19 @@ background-color: rgb(237, 237, 237);
     }
 
     .subject {
-        width: 220px;
+        /* width: 220px; */
         text-overflow: ellipsis;
         white-space: nowrap;
     }
+    .content {
+        display: flex;
+        align-items: center;
+        width: 0;
+        flex-grow: 1;
+    }
 
     .short-content {
-        width: 100%;
+        /* width: 100%; */
         text-overflow: ellipsis;
         overflow: hidden;
         white-space: nowrap;
@@ -92,13 +101,13 @@ background-color: rgb(237, 237, 237);
     .mail-date ,.mail-preveiw button{
         /* display:none; */
         white-space: nowrap;
-        position: absolute;
-        padding-inline-start:5vw;
-        padding-inline-end: 15px;
-        padding-top:15px ;
-        padding-bottom: 15px;
-        right: 10px;
-        background-color: inherit;
+        /* position: absolute; */
+        /* padding-inline-start:5vw; */
+        /* padding-inline-end: 15px; */
+        /* padding-top:15px ; */
+        /* padding-bottom: 15px; */
+        /* right: 10px; */
+        /* background-color: inherit; */
     }
 
     .mail-preveiw:hover {
@@ -113,3 +122,26 @@ background-color: rgb(237, 237, 237);
         display: block;
     }
 
+
+/* 
+    .content {
+        display: flex;
+        align-items: center;
+        width: 0;
+        flex-grow: 1;
+    }
+    
+    .title {
+        white-space: nowrap;
+        overflow-x: hidden;
+        text-overflow: ellipsis;
+        margin-inline-end: 10px;
+    }
+    
+    .desc {
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow-x: hidden;
+        color: #5f6368;
+        font-weight: initial;
+    } */
