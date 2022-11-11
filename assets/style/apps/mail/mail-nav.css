@@ -12,18 +12,20 @@ background-color: rgb(255, 110, 110);
 }
 
 .mail-nav button{
+
     display: flex;
     align-items: center;
-    gap:2px;
     font-weight: 700;
     width: 150px;
 border-radius: 8px;
 border:none;
 margin-top: 10px;
 margin-inline-start: 10px;
+margin-bottom:10px;
 background-color: lightcyan;
 }
 .mail-nav button:hover{
+    color: var(--clr10);
 background-color:rgb(203, 239, 239) ;
 }
 .nav-icon{
@@ -51,6 +53,7 @@ padding-inline-end: 15px;
 background-color: rgb(233, 230, 230);
 }
 .folder-link.mail-link.clicked{
+    color: var(--clr10);
 background-color: #f8dedb;
 }
 
