@@ -14,7 +14,8 @@ export default {
                 <li v-for="(mail,idx) in mails">
                     <mail-preview :mail="mail" 
                     @delete="deleteMail"
-                    @starred="starAdded"/>
+                    @starred="starAdded"
+                    @trashed="passToTrash"/>
                  </li>
             </ul>
                    
@@ -34,6 +35,9 @@ export default {
         },
         starAdded(mail){
         this.$emit('starred', mail)
+        },
+        passToTrash(mail, mailId){
+        this.$emit('trashed',mail, mailId)
         }
 
         

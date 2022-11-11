@@ -22,7 +22,7 @@ export default {
                         <!-- <i class="fa-solid fa-trash-can" ></i> -->
                         <!-- </div> -->
                         <div class="mail-date">{{formattedDate}}</div>
-                        <button @click.prevent="deleteMail(mail.id)">
+                        <button @click.prevent="deleteMail(mail,mail.id)">
                         <i class="fa-solid fa-trash-can" ></i>
                         </button>
                     </router-link>
@@ -37,8 +37,16 @@ export default {
         }
     },
     methods: {
-        deleteMail(mailId) {
-            this.$emit('delete', mailId)
+        deleteMail(mail, mailId) {
+            setTimeout(() => {
+                console.log(this.$route.params.folder)
+                if(this.$route.params.folder==='trash'){
+                    this.$emit('delete', mailId)
+                }else{
+                    mail.isTrash=true
+                    this.$emit('trashed', mail, mailId)  
+                } 
+            }, 0);
         },
         StarClicked() {
             this.mail.isStarred = !this.mail.isStarred

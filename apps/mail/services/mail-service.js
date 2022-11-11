@@ -32,22 +32,22 @@ function sendMail({ to, subject, body }) {
     return storageService.post(MAIL_KEY, mail)
 }
 
-function query({folder}) {
+function query({ folder }) {
     return storageService.query(MAIL_KEY)
         .then(mails => {
             if (folder === 'inbox') {
-                mails = mails.filter(mail => !mail.isSent)
+                mails = mails.filter(mail => !mail.isSent && !mail.isTrash)
             }
             else if (folder === 'starred') {
-                mails = mails.filter(mail => mail.isStarred)
+                mails = mails.filter(mail => mail.isStarred && !mail.isTrash)
             }
             else if (folder === 'sent') {
-                mails = mails.filter(mail => mail.isSent)
+                mails = mails.filter(mail => mail.isSent && !mail.isTrash)
             }
             else if (folder === 'trash') {
                 mails = mails.filter(mail => mail.isTrash)
             }
-           return mails
+            return mails
         })
 }
 
