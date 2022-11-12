@@ -1,10 +1,10 @@
 export const newImg = {
 
     template: `
-        <section class="new-img flex flex-column">
-                <textarea v-model="newNote.title" placeholder="Title"></textarea>
-                <textarea v-model="newNote.info.url" placeholder="Enter image URL..."></textarea>
-                <button class="add-note"  @click.prevent="addNote()">Add</button>
+        <section class="new-note-form">
+                <input v-model="newNote.title" placeholder="Title"></input>
+                <input v-model="newNote.info.url" placeholder="Enter image URL..."></input>
+                <button class="add-note-btn"  @click.prevent="addNote()">Add</button>
                 
         </section>
     `,

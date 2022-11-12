@@ -2,10 +2,10 @@ export const newTxt = {
 
 
     template: `
-        <section class="new-txt flex flex-column">
-                <textarea v-model="newNote.title" placeholder="Title"></textarea>
+        <section class="new-note-form">
+                <input v-model="newNote.title" placeholder="Title"></input>
                 <textarea v-model="newNote.info.txt" placeholder="Take a note..."></textarea>
-                <button class="add-note" @click.prevent="addNote()">Add</button>
+                <button class="add-note-btn" @click.prevent="addNote()">Add</button>
                 
         </section>
     `,

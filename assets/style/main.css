@@ -25,3 +25,8 @@
 @import './apps/mail/mail-compose.css';
 @import './apps/mail/mail-details.css';
 @import './apps/mail/mail-list.css';
+
+@import './apps/note/note-list.css';
+@import './apps/note/note-app.css';
+@import './apps/note/note-add.css';
+@import './apps/note/note-preview.css';

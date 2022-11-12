@@ -1,0 +1,60 @@
+.add-note{
+/* background-color: aquamarine; */
+}
+.add-note h4{
+margin-inline-end: 10px;
+}
+
+.new-note-form{
+display: flex;
+align-items: center;
+}
+
+.new-note-form textarea{
+border-radius: 8px;
+margin-inline-end: 10px;
+resize: none;
+/* outline: none */
+
+}
+.new-note-form input{
+border-radius: 8px;
+margin-inline-end: 10px;
+border: 1px solid rgb(128, 127, 127);
+}
+
+.add-note-btn{
+background-color: transparent;
+border:0;
+border-radius: 4px;
+transition:0.3s;
+font-size: larger;
+font-weight: bolder;
+border-radius: 8px;
+
+}
+
+.add-note-btn:hover{
+/* background-color: rgb(255, 208, 1); */
+transform: scale(1.1);
+text-decoration: underline;
+}
+
+.note-type-btns{
+margin-inline-start: 10px;
+
+}
+
+.note-type-btns button{
+background-color: transparent;
+border: 0;
+transition:0.3s;
+font-size: larger;
+border-radius: 8px;
+}
+
+.note-type-btns button:hover{
+    transform: scale(1.2);
+    text-decoration: underline;
+    /* background-color: rgba(240, 210, 80, 0.744); */
+    }

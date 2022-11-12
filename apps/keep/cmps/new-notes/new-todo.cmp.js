@@ -2,10 +2,10 @@ export const newTodo = {
 
 
     template: `
-        <section class="new-todo flex flex-column">
-                <textarea v-model="newNote.info.label" placeholder="Lable..."></textarea>
+        <section class="new-note-form">
+                <input v-model="newNote.info.label" placeholder="Lable..."></input>
                 <textarea v-model="newNote.info.todos" placeholder="Enter comma separated list..."></textarea>
-                <button class="add-note" @click.prevent="addNote()">Add</button>
+                <button class="add-note-btn" @click.prevent="addNote()">Add</button>
                 
         </section>
     `,

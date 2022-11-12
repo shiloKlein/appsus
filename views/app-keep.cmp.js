@@ -15,19 +15,19 @@ import { newTodo } from '../apps/keep/cmps/new-notes/new-todo.cmp.js'
 export default {
     template: `
     <section class="app-keep">
-        
-        <section class="note-type flex justify-between align-center">
+        <section class="add-note flex justify-center align-center">
             <h4>what's on your mind?</h4>
-            <section class="note-type-btns">
-             <button  @click="cmpTo('newTxt')">txt</button>
-             <button  @click="cmpTo('newImg')">img</button>
-             <button  @click="cmpTo('newVideo')">video</button>
-             <button  @click="cmpTo('newTodo')">todos</button>
-            </section>
+            <component :is="cmpType" @add="addNote"/>
+           
+        <section class="note-type-btns flex justify-between align-center">
+                <section class="note-type-btns">
+                 <button  @click="cmpTo('newTxt')">txt</button>
+                 <button  @click="cmpTo('newImg')">img</button>
+                 <button  @click="cmpTo('newVideo')">video</button>
+                 <button  @click="cmpTo('newTodo')">todos</button>
+                </section>
         </section>
-            <component :is="cmpType" @add="addNote">
-            </component>
-             <hr />
+        </section>
         <!-- <note-filter @filter="setFilter"/> -->
          <!-- <new-note  @add="addNote"/> -->
         <note-list  @remove="removeNote" :notes="notes"/>
