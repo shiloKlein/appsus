@@ -33,6 +33,8 @@ export const newTodo = {
     methods: {
         addNote() {
             this.$emit('add', this.newNote)
+            this.newNote.info.label=''
+            this.newNote.info.todos=''
         },
     }
 
