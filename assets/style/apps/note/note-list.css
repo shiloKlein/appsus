@@ -1,4 +1,4 @@
-.note-list ul {
+.note-list {
     /* display: grid;
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); */
     columns: 200px 5;
@@ -6,31 +6,75 @@
     break-inside: avoid;
     row-gap: 10px;
     list-style-type: none;
-    padding: 10px;
+    /* padding: 10px; */
 }
 
 .note-list ul li {
     padding: 10px;
 }
 
-.todo-note-li {
-    display: flex;
-}
+/* .todo-note-li { */
+/* display: flex; */
+/* } */
 
 
-.actions {
-    justify-self: end;
+/* .actions { */
+/* justify-self: end; */
+/* } */
+
+.note-list ul li {
+    min-height: 0px;
+    position: relative;
 }
 
-.img-note {
-    width: 200px;
-    background: rgb(234, 94, 94);
+.note-preview img {
+    object-fit: contain;
+    padding: 0;
+
+    /* height: 100px; */
 }
+
 
 .todos-note {
     background: rgb(66, 226, 127);
+    border-radius: 8px;
+    padding: 5px
 }
 
 .txt-note {
     background: rgb(75, 75, 230);
+    border-radius: 8px;
+    padding: 5px
+}
+
+.img-note img {
+    border-radius: 10px;
+    padding: 5px
+}
+
+.actions {
+    position: absolute;
+    bottom: 15px;
+    right:15px;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 6px;
+    width: 30px;
+    height: 30px;
+    display: grid;
+    place-items: center;
+}
+
+.actions button {
+    font-size: x-large;
+    font-weight: bold;
+    background-color:transparent;
+    min-width: 0px;
+    min-height: 0px;
+ 
+    border: none;
+    transition: 0.3s;
+}
+.actions button:hover {
+transform: scale(1.1);
+color:rgba(183, 92, 92, 0.7)
 }
