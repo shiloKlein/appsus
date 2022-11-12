@@ -20,10 +20,12 @@ export default {
                 <div class="short-content">{{mail.body}}</div>
             </div>
 
-            <div class="mail-date">{{formattedDate}}</div>
-            <button @click.prevent="deleteMail(mail,mail.id)">
-                <i class="fa-solid fa-trash-can" ></i>
-            </button>
+            <div >
+<div class="mail-date">{{formattedDate}}</div>
+                <button @click.prevent="deleteMail(mail,mail.id)">
+                    <i class="fa-solid fa-trash-can" ></i>
+                </button>
+            </div>
 
         </router-link>
     

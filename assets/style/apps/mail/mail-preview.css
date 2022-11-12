@@ -21,7 +21,7 @@ background-color: rgb(237, 237, 237);
 }
 
 .mail-preveiw button {
-    position: absolute;
+    /* position: absolute; */
     right: 10px;
     padding: 0;
     border: none;
@@ -83,6 +83,8 @@ background-color: rgb(237, 237, 237);
         /* width: 220px; */
         text-overflow: ellipsis;
         white-space: nowrap;
+        font-weight: bold;
+        padding-inline-end: 15px;
     }
     .content {
         display: flex;

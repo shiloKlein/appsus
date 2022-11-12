@@ -8,5 +8,7 @@
     left:50%
     }
     .mail-list{
-    flex:1
+    flex:1;
+    overflow-y: scroll;
+    overflow-x: hidden;
     }
