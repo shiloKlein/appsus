@@ -32,6 +32,14 @@ padding-bottom: 40px;
 
 }
 
+@media(max-width: 720px) {
+
+    .mail-details{
+    margin-inline-start: 50px;
+    }
+
+}
+
 
 
 

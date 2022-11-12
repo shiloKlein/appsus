@@ -80,7 +80,8 @@ background-color: rgb(237, 237, 237);
     }
 
     .subject {
-        /* width: 220px; */
+        min-width: 250px;
+        overflow: hidden;
         text-overflow: ellipsis;
         white-space: nowrap;
         font-weight: bold;
@@ -122,6 +123,24 @@ background-color: rgb(237, 237, 237);
 
     .mail-preveiw:hover button {
         display: block;
+    }
+
+    @media(max-width: 720px) {
+.mail-preveiw{
+flex-direction: column;
+}
+
+.details-link 
+
+    .mail-date{
+    background-color: #fff;
+    }
+    .mail-preveiw button {
+        background-color:rgba(255, 255, 255, 0.9);
+        min-width: 30px;
+        min-height: 30px;
+        border-radius: 6px;
+    }
     }
 
 

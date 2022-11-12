@@ -7,36 +7,37 @@
 
 }
 
-.folder-wrapper a:active{
-background-color: rgb(255, 110, 110);
+.folder-wrapper a:active {
+    background-color: rgb(255, 110, 110);
 }
 
-.mail-nav button{
+.mail-nav button {
 
     display: flex;
     align-items: center;
     font-weight: 700;
     width: 150px;
-border-radius: 8px;
-border:none;
-margin-top: 10px;
-margin-inline-start: 10px;
-margin-bottom:10px;
-background-color: lightcyan;
-}
-.mail-nav button:hover{
-    color: var(--clr10);
-background-color:rgb(203, 239, 239) ;
+    border-radius: 8px;
+    border: none;
+    margin-top: 10px;
+    margin-inline-start: 10px;
+    margin-bottom: 10px;
+    background-color: lightcyan;
 }
 
-.nav-icon{
-height: 1.2rem;
-padding-inline-end: 15px;
+.mail-nav button:hover {
+    color: var(--clr10);
+    background-color: rgb(203, 239, 239);
+}
+
+.nav-icon {
+    height: 1.2rem;
+    padding-inline-end: 15px;
 }
 
 .folder-link {
     display: flex;
-    align-items:center;
+    align-items: center;
     border-radius: 8px;
     width: 100%;
     height: 48px;
@@ -45,19 +46,151 @@ padding-inline-end: 15px;
     /* margin-top: 30px; */
 }
 
-.folder-link:hover{
+.folder-link:hover {
     background-color: rgb(233, 230, 230);
     cursor: pointer;
 }
 
-.folder-link.clicked{
-background-color: rgb(233, 230, 230);
+.folder-link.clicked {
+    background-color: rgb(233, 230, 230);
 }
-.folder-link.mail-link.clicked{
+
+.folder-link.mail-link.clicked {
     color: var(--clr10);
-background-color: #f8dedb;
+    background-color: #f8dedb;
 }
 
 .mail-nav ul li.clicked {
     box-shadow: 0px 0px 2px 0px;
+}
+
+
+@media(max-width: 720px) {
+
+    .mail-nav-txt {
+        display: none;
+    }
+
+    .mail-nav {
+        align-items: center;
+        min-width: 50px;
+        width: 50px;
+        background-color: #fff;
+        transition: 0.5s;
+        position: absolute;
+    }
+
+    .mail-list{
+    margin-inline-start: 50px;
+    } 
+
+    .mail-nav button {
+        display: grid;
+        place-items: center;
+        min-width: 30px;
+        min-height: 30px;
+        width: 30px;
+        height: 30px;
+    }
+
+    .mail-nav button img {
+        width: 100%;
+        padding: 0px;
+        transform: scale(1.1);
+    }
+
+    .mail-nav:hover{
+        align-items: flex-start;
+        min-width: 200px;
+        width: 200px;
+        background-color: #fff;
+        position:absolute
+    }
+    .mail-nav:hover.mail-nav button img{
+        transform: scale(0.9);
+    width: 20px;
+    margin-inline-end: 10px;
+    }
+
+    .mail-nav:hover.mail-nav button {
+  
+        min-height: 30px;
+        width: 150px;
+        height: 48px;
+    }
+
+    .mail-nav:hover .mail-nav-txt{
+    display:block
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    .mail-nav button {
+
+        display: flex;
+        align-items: center;
+        font-weight: 700;
+        border-radius: 8px;
+        border: none;
+        margin-top: 10px;
+        margin-inline-start: 10px;
+        margin-bottom: 10px;
+        background-color: lightcyan;
+    }
+
+    .mail-nav button:hover {
+        color: var(--clr10);
+        background-color: rgb(203, 239, 239);
+    }
+
+    .nav-icon {
+        height: 1.2rem;
+        padding-inline-end: 15px;
+    }
+
+    .folder-link {
+        display: flex;
+        align-items: center;
+        border-radius: 8px;
+        width: 100%;
+        height: 48px;
+        padding-inline-start: 20px;
+        /* transition: 0.4s; */
+        /* margin-top: 30px; */
+    }
+
+    .folder-link:hover {
+        background-color: rgb(233, 230, 230);
+        cursor: pointer;
+    }
+
+    .folder-link.clicked {
+        background-color: rgb(233, 230, 230);
+    }
+
+    .folder-link.mail-link.clicked {
+        color: var(--clr10);
+        background-color: #f8dedb;
+    }
+
+    .mail-nav ul li.clicked {
+        box-shadow: 0px 0px 2px 0px;
+    }
 }

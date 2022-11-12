@@ -1,0 +1,19 @@
+.home-page .logo-container{
+width:180px;
+margin-bottom: 30px;
+}
+
+h1{
+margin: 80px 0px 60px;
+font-size: xx-large;
+}
+.home-nav{
+gap:50px
+}
+.home-nav div{
+width: 100px;
+transition: 0.3s;
+}
+.home-nav div:hover{
+transform: scale(1.2);
+}
