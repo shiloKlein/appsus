@@ -82,7 +82,8 @@ function getNextNoteId(noteId) {
 }
 
 function _createNotes() {
-    let notes = storageService.query(NOTE_KEY)
+    let notes = utilService.loadFromStorage(NOTE_KEY)
+
     if (!notes || !notes.length) {
         notes = [
             {
@@ -113,6 +114,48 @@ function _createNotes() {
                     todos: [
                         { txt: "Driving liscence", doneAt: null },
                         { txt: "Coding power", doneAt: 187111111 }
+                    ]
+                }
+            },
+            {
+                id: "n104",
+                type: "note-txt",
+                isPinned: true,
+                title: "היכונו לביאת המשיח!",
+                info: {
+                    txt: "עם ישראל חי..."
+                }
+            },
+            {
+                id: "n105",
+                type: "note-img",
+                info: {
+                    url: "../../../assets/img/2.jpg",
+                    title: "THE KING!!!!"
+                },
+                style: {
+                    backgroundColor: "#00d"
+                }
+            },
+            {
+                id: "n106",
+                type: "note-txt",
+                isPinned: true,
+                title: "",
+                info: {
+                    txt: "Lucy in the sky with diamonds..."
+
+                }
+            },
+            {
+                id: "n107",
+                type: "note-todos",
+                info: {
+                    label: "working on",
+                    todos: [
+                        { txt: "Html", doneAt: null },
+                        { txt: "Js", doneAt: 187111111 },
+                        { txt: "Css", doneAt: 187111111 }
                     ]
                 }
             }

@@ -4,7 +4,7 @@ export const newImg = {
         <section class="new-img flex flex-column">
                 <textarea v-model="newNote.title" placeholder="Title"></textarea>
                 <textarea v-model="newNote.info.url" placeholder="Enter image URL..."></textarea>
-                <button class="add-note" @click.prevent="addNote()">Add</button>
+                <button class="add-note"  @click.prevent="addNote()">Add</button>
                 
         </section>
     `,
@@ -32,7 +32,10 @@ export const newImg = {
         addNote() {
             this.$emit('add', this.newNote)
         },
+        // clearText() {
+        //     this.newNote.info.url = ""
 
+        // }
     }
 
 }
