@@ -14,7 +14,8 @@ export default {
 
             <mails-list v-if="mails" :mails="filterByTxt" 
             @delete="deleteMail"
-            @starred="updateMailStar"/>
+            @starred="updateMailStar"
+            @trashed="passToTrash"/>
 
             <new-mail v-if="isWriting"
             @close="close"
@@ -43,11 +44,13 @@ export default {
                 })
         },
         deleteMail(mailId) {
+            const idx = this.mails.findIndex(mail=>mail.id===mailId)
+            this.mails.splice(idx,1)
+            
             mailService.remove(mailId)
                 .then(() => {
                     const idx = this.mails.findIndex(mail => mail.id === mailId)
                     this.mails.splice(idx, 1)
-                    // showSuccessMsg(`Mail ${mailId} deleted`)
                 })
         },
         compose() {
@@ -66,8 +69,14 @@ export default {
             this.isWriting = false
         },
         updateMailStar(mail){
-        console.log(mail.isStarred);
         mailService.save(mail)
+        },
+        passToTrash(mail, mailId){
+            mailService.save(mail)
+            const idx = this.mails.findIndex(mail=>mail.id===mailId)
+            console.log(idx);
+            this.mails.splice(idx,1)
+
         }
 
     },

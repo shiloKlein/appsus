@@ -31,8 +31,9 @@ export const newTxt = {
 
     methods: {
         addNote() {
-            console.log(this.newNote.title, this.newNote.info.txt);
             this.$emit('add', this.newNote)
+            this.newNote.info.txt=''
+            this.newNote.title=''
         },
 
     }

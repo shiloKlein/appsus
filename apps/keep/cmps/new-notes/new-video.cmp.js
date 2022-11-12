@@ -30,8 +30,9 @@ export const newVideo = {
 
     methods: {
         addNote() {
-            console.log(this.newNote.title, this.newNote.info.txt);
             this.$emit('add', this.newNote)
+            this.newNote.title=''
+            this.newNote.info.url=''
         },
 
     }

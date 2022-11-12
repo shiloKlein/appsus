@@ -31,6 +31,8 @@ export const newImg = {
     methods: {
         addNote() {
             this.$emit('add', this.newNote)
+            this.newNote.info.url=''
+            this.newNote.title=''
         },
         // clearText() {
         //     this.newNote.info.url = ""

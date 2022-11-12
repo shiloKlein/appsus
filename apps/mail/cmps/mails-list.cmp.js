@@ -8,13 +8,14 @@ export default {
     props: ['mails'],
     template: `
         <section class="mail-list">
-        <input class="mail-search" v-model="searchTxt" type="text" placeholder="search for mail" /><!--should be in comp or header -->
+        <input class="mail-search" v-model="searchTxt" type="text" placeholder="search for mail" />
 
             <ul class="mail-preview-container">
                 <li v-for="(mail,idx) in mails">
                     <mail-preview :mail="mail" 
                     @delete="deleteMail"
-                    @starred="starAdded"/>
+                    @starred="starAdded"
+                    @trashed="passToTrash"/>
                  </li>
             </ul>
                    
@@ -34,6 +35,9 @@ export default {
         },
         starAdded(mail){
         this.$emit('starred', mail)
+        },
+        passToTrash(mail, mailId){
+        this.$emit('trashed',mail, mailId)
         }
 
         

@@ -71,9 +71,9 @@ export default {
             noteService.addNote(newNote)
                 .then(note => {
                     console.log(note);
-                    this.notes.push(note)
                 })
-        },
+                this.notes.unshift(newNote)
+            },
         setFilter(filterBy) {
             this.filterBy = filterBy
         },

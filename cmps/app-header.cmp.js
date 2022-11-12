@@ -1,29 +1,44 @@
 export default {
     template: `
+        <div class="main-screen" :class="{menu_open:isMenuClicked}" @click="toggleMenu()"></div>
         <header class="app-header flex justify-between align-center">
             <div class="logo-container flex align-center"><img v-bind:src="headerImg" /> {{headerTxt}}</div> 
+            <button class="btn-menu" @click="toggleMenu()"><img src="./assets/img/apps_icon.png"/></button>
             <nav>
-                <router-link to="/">Home</router-link> | 
-                <router-link to="/about">About</router-link> |
-                <router-link to="/mail">mail</router-link> |
-                <router-link to="/keep">keep</router-link>
+                <ul  class="drop-down flex align-center" :class="{clicked:isMenuClicked}">
+                    <li><router-link to="/"><img src="./assets/img/home-icon.jpg"/ title="home"></router-link></li>
+                    <li><router-link to="/about"><img src="./assets/img/about-icon.jpg" title="about"/></router-link></li>
+                    <li><router-link to="/mail"><img src="./assets/img/gmail-logo.jpg" title="appsus mail"/></router-link></li>
+                    <li><router-link to="/keep"><img src="./assets/img/keep-logo.png" title="appsus keep"/></router-link></li>
+                </ul> 
             </nav>
         </header>
     `,
+    data() {
+        return {
+            isMenuClicked: false,
+        }
+    },
+
+    methods: {
+        toggleMenu() {
+            this.isMenuClicked = !this.isMenuClicked
+
+        },
+    },
     computed: {
         headerImg() {
-            console.log(this.$route.fullPath.split('/')[2]==='details');
-            if(this.$route.fullPath==='/'||
-            this.$route.fullPath==='/about')return '../assets/img/apsus-logo.jpg'
-            if(this.$route.fullPath==='/mail'||
-            this.$route.fullPath.split('/')[2]==='details')return '../assets/img/mail-logo.png'
-            if(this.$route.fullPath==='/keep')return '../assets/img/keep-logo.png'
+            console.log(this.$route.fullPath.split('/')[2] === 'details');
+            if (this.$route.fullPath === '/' ||
+                this.$route.fullPath === '/about') return './assets/img/apsus-logo.jpg'
+            if (this.$route.fullPath.split('/')[1] === 'mail') return './assets/img/gmail-logo.jpg'
+            if (this.$route.fullPath === '/keep') return './assets/img/keep-logo.PNG'
         },
         headerTxt() {
-            if(this.$route.fullPath==='/') return 'Apsus'
-            if(this.$route.fullPath==='/about')return 'About'
-            if(this.$route.fullPath==='/mail')return 'Email'
-            if(this.$route.fullPath==='/keep')return 'Keep'
+            if (this.$route.fullPath === '/') return 'Apsus'
+            if (this.$route.fullPath === '/about') return 'About'
+            if (this.$route.fullPath.split('/')[1] === 'mail') return 'Email'
+            if (this.$route.fullPath === '/keep') return 'Keep'
         }
     },
 
