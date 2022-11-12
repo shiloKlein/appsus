@@ -2,7 +2,7 @@ export default {
     template: `
         <section class="mail-nav flex flex-column">
             <button @click="onCompose">
-           <img class="nav-icon" src="./../../assets/img/icons/pencil.svg" alt="" />
+           <img class="nav-icon" src="./assets/img/icons/pencil.svg" alt="" />
             new massege</button>
 
             <router-link :to="'/mail/' + 'inbox'" class="mail-link folder-link"
@@ -18,7 +18,7 @@ export default {
               <router-link :to="'/mail/' + 'sent'" class="folder-link"
               :class={clicked:isSentClicked}
                 @click="chooseFolder()">
-                <img class="nav-icon" src="../../../assets/img/icons/paper-plane.svg" />
+                <img class="nav-icon" src="./assets/img/icons/paper-plane.svg" />
                 sent </router-link>
                 
               <router-link :to="'/mail/' + 'trash'" class="folder-link"
