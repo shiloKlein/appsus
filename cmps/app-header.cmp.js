@@ -30,7 +30,7 @@ export default {
         headerImg() {
             console.log(this.$route.fullPath.split('/')[2] === 'details');
             if (this.$route.fullPath === '/' ||
-                this.$route.fullPath === '/about') return './assets/img/apsus-logo.jpg'
+                this.$route.fullPath === '/about') return './assets/img/apsus-logo.png'
             if (this.$route.fullPath.split('/')[1] === 'mail') return './assets/img/gmail-logo.jpg'
             if (this.$route.fullPath === '/keep') return './assets/img/keep-logo.PNG'
         },

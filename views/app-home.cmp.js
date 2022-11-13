@@ -1,7 +1,7 @@
 export default {
 	template: `
         <section class="home-page flex flex-column align-center">
-        <div class="logo-container"><img src="./assets/img/apsus-logo.jpg"></div>
+        <div class="logo-container"><img src="./assets/img/apsus-logo.png"></div>
             <h1>Appsus.</h1>
 
               <div class="home-nav flex align-center">
