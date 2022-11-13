@@ -27,10 +27,8 @@ function getLoggedInUser() {
 }
 
 function sendMail({ to, subject, body }) {
-    // console.log(body);
     const user = loggedinUser
     const mail = _createMail(user.email, to, subject, body)
-    console.log(mail);
     return storageService.post(MAIL_KEY, mail)
 }
 
@@ -107,7 +105,6 @@ function _createMails() {
     if (!mails || !mails.length) {
         mails = mailData
         storageService.save(MAIL_KEY, mails)
-        console.log(mails);
     }
     return mails
 }

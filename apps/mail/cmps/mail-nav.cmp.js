@@ -51,7 +51,7 @@ export default {
         activeButton(){
             setTimeout(() => {
                 const folder = this.$route.params.folder
-                console.log(folder);
+
                 this.isInboxClicked= folder==='inbox' ? true:false
                 this.isStarredClicked= folder==='starred' ? true:false
                 this.isSentClicked= folder==='sent' ? true:false

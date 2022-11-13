@@ -42,7 +42,7 @@ export default {
             this.$emit('close')
         },
         sendMail(){
-            console.log(this.newMail);
+
             this.$emit('send', this.newMail)
         },
     }

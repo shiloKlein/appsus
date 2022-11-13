@@ -23,8 +23,7 @@ function makeList(str) {
         var res = { txt: item, doneAt: null }
         todos.push(res)
     }
-    console.log("todos")
-    console.log(todos)
+
     return todos
 
 }
@@ -33,8 +32,7 @@ function makeList(str) {
 
 function addNote(note) {
     note = _createNote(note)
-    console.log(note.type)
-    console.log(note.info.todos)
+
     return storageService.post(NOTE_KEY, note)
 }
 

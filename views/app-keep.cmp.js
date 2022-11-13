@@ -70,7 +70,7 @@ export default {
         addNote(newNote) {
             noteService.addNote(newNote)
                 .then(note => {
-                    console.log(note);
+                    // console.log(note);
                 })
                 this.notes.unshift(newNote)
             },
@@ -78,7 +78,6 @@ export default {
             this.filterBy = filterBy
         },
         handleAction(ev) {
-            console.log('Parenting is handling the action!', ev)
         }
     },
     computed: {

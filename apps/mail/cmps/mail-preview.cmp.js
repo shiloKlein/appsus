@@ -41,7 +41,7 @@ export default {
     methods: {
         deleteMail(mail, mailId) {
             setTimeout(() => {
-                console.log(this.$route.params.folder)
+
                 if (this.$route.params.folder === 'trash') {
                     this.$emit('delete', mailId)
                 } else {

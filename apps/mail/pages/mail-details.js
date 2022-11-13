@@ -25,12 +25,10 @@ export default {
     },
     created() {
         this.getMail()
-        console.log(this.$router);
     },
 
     computed: {
         mailId() {
-            console.log(this.$route.params.id);
             return this.$route.params.id
         },
         formattedDate() {
@@ -43,7 +41,6 @@ export default {
         getMail() {
             mailService.get(this.mailId)
                 .then(mail => {
-                    console.log(mail);
                     this.mail = mail
                 })
         },

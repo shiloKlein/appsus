@@ -5,6 +5,5 @@ export default {
         </section>
     `,
     created(){
-    console.log(this.router);
     }
     }

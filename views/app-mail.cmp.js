@@ -15,7 +15,8 @@ export default {
             <mails-list v-if="mails" :mails="filterByTxt" 
             @delete="deleteMail"
             @starred="updateMailStar"
-            @trashed="passToTrash"/>
+            @trashed="passToTrash"
+            @searched="updateSearchTxt"/>
 
             <new-mail v-if="isWriting"
             @close="close"
@@ -37,16 +38,16 @@ export default {
 
     methods: {
         getMails() {
-            const folder =  this.$route.params
+            const folder = this.$route.params
             mailService.query(folder)
-                .then(mails =>{
+                .then(mails => {
                     this.mails = mails
                 })
         },
         deleteMail(mailId) {
-            const idx = this.mails.findIndex(mail=>mail.id===mailId)
-            this.mails.splice(idx,1)
-            
+            const idx = this.mails.findIndex(mail => mail.id === mailId)
+            this.mails.splice(idx, 1)
+
             mailService.remove(mailId)
                 .then(() => {
                     const idx = this.mails.findIndex(mail => mail.id === mailId)
@@ -55,7 +56,7 @@ export default {
         },
         compose() {
             this.isWriting = true
-            console.log(this.router);
+            // console.log(this.router);
         },
         close() {
             this.isWriting = false
@@ -63,20 +64,23 @@ export default {
         sendMail(newMail) {
             mailService.sendMail(newMail)
                 .then(mail => {
-                    console.log(mail);
+                    // console.log(mail);
                     this.mails.push(mail)
                 })
             this.isWriting = false
         },
-        updateMailStar(mail){
-        mailService.save(mail)
-        },
-        passToTrash(mail, mailId){
+        updateMailStar(mail) {
             mailService.save(mail)
-            const idx = this.mails.findIndex(mail=>mail.id===mailId)
-            console.log(idx);
-            this.mails.splice(idx,1)
+        },
+        passToTrash(mail, mailId) {
+            mailService.save(mail)
+            const idx = this.mails.findIndex(mail => mail.id === mailId)
+            // console.log(idx);
+            this.mails.splice(idx, 1)
 
+        },
+        updateSearchTxt(searchTxt) {
+            this.searchTxt = searchTxt
         }
 
     },
@@ -84,24 +88,25 @@ export default {
         filterByTxt() {
             if (!this.searchTxt) return this.mails
             const regex = new RegExp(this.searchTxt, 'i')
-            return this.mails.filter((mail) =>{ 
-            return regex.test(mail.to)||
-            regex.test(mail.from)||
-            regex.test(mail.subject)})
-       },
+            return this.mails.filter((mail) => {
+                return regex.test(mail.to) ||
+                    regex.test(mail.from) ||
+                    regex.test(mail.subject)
+            })
+        },
 
         mailsInFolder(folder) {
             const user = mailService.getLoggedInUser
 
         },
     },
-        
 
 
-        components: {
-            newMail,
-            mailsList,
-            mailNav
 
-        }
+    components: {
+        newMail,
+        mailsList,
+        mailNav
+
     }
+}

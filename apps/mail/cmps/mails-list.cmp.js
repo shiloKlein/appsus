@@ -8,7 +8,7 @@ export default {
     props: ['mails'],
     template: `
         <section class="mail-list">
-        <input class="mail-search" v-model="searchTxt" type="text" placeholder="search for mail" />
+        <input class="mail-search" v-model="searchTxt" type="text" placeholder="search for mail" @input="onSearch" />
 
             <ul class="mail-preview-container">
                 <li v-for="(mail,idx) in mails">
@@ -26,21 +26,24 @@ export default {
 
     data() {
         return {
-
+            searchTxt: ''
         }
     },
     methods: {
-        deleteMail(mailId){
-        this.$emit('delete', mailId)
+        deleteMail(mailId) {
+            this.$emit('delete', mailId)
         },
-        starAdded(mail){
-        this.$emit('starred', mail)
+        starAdded(mail) {
+            this.$emit('starred', mail)
         },
-        passToTrash(mail, mailId){
-        this.$emit('trashed',mail, mailId)
+        passToTrash(mail, mailId) {
+            this.$emit('trashed', mail, mailId)
+        },
+        onSearch(){
+        this.$emit('searched', this.searchTxt)
         }
 
-        
+
     },
 
 
