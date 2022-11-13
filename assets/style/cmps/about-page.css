@@ -7,8 +7,7 @@ gap:80px;
     padding:12px;
     margin-bottom: 50px;
     border-radius: 8px;
-    background-color: rgb(249, 221, 149);
-    box-shadow: 0px 0px 0px 2px #f4af47,inset 0px 0px 2px 2px #ddba87;
+    background-color: lightblue
 }
 .about-card img{
     width: 300px;
